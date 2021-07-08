@@ -21,6 +21,7 @@ treesitter.setup {
     "go",
     "gomod",
     "python",
+    "lua",
   },
 }
 
