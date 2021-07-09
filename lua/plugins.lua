@@ -37,7 +37,8 @@ return require('packer').startup(function()
   use 'mhinz/vim-startify'
   -- markdown
   use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}}
-  use 'vhyrro/neorg'
+  -- org-mode
+  use {'kristijanhusak/orgmode.nvim'}
   -- colorscheme
   use 'navarasu/onedark.nvim'
   -- enhanced motion
