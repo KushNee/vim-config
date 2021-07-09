@@ -18,11 +18,7 @@ return require('packer').startup(function()
   -- tabline
   use { 'crispgm/nvim-tabline'}
   -- file manager
-  use {
-    'Shougo/defx.nvim',
-    requires = {'kristijanhusak/defx-git','kristijanhusak/defx-icons'},
-    run= ':UpdateRemotePlugins' 
-  }
+  use { 'ms-jpq/chadtree', branch = 'chad', run = 'python3 -m chadtree deps' }
   -- lsp
   use { 'glepnir/lspsaga.nvim', requires= {{'neovim/nvim-lspconfig'}} }
   use 'folke/lsp-colors.nvim'
