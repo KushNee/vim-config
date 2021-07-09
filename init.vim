@@ -119,7 +119,7 @@ if has("unix")
   endif
 endif
 
-runtime ./maps.vim
+lua require("maps")
 "}}}
 
 " Syntax theme "{{{
