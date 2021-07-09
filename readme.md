@@ -1,3 +1,3 @@
 Just a personal config folder for neovim.
 
-Trying to change all vimscript to lua.
+Trying to convert all vimscript to lua.

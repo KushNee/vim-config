@@ -113,7 +113,7 @@ if has("unix")
   let s:uname = system("uname -s")
   " Do Mac stuff
   if s:uname == "Darwin\n"
-    runtime ./macos.vim
+    lua require("macos")
   endif
 endif
 
@@ -130,17 +130,8 @@ if exists("&termguicolors") && exists("&winblend")
   set winblend=0
   set wildoptions=pum
   set pumblend=5
-  set background=dark
 
   colorscheme onedark
 endif
 
 "}}}
-
-" Extras "{{{
-" ---------------------------------------------------------------------
-set exrc
-
-"}}}
-
-" vim: set foldmethod=marker foldlevel=0:

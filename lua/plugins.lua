@@ -15,6 +15,8 @@ return require('packer').startup(function()
   use 'cohama/lexima.vim'
   -- statusline
   use { 'hoob3rt/lualine.nvim', requires = {{'kyazdani42/nvim-web-devicons'}}}
+  -- tabline
+  use { 'crispgm/nvim-tabline'}
   -- file manager
   use {
     'Shougo/defx.nvim',
