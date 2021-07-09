@@ -16,7 +16,7 @@ telescope.setup{
 local function global_set_keymap(...) vim.api.nvim_set_keymap(...) end
 local opts = { noremap=true, silent=true }
 
-global_set_keymap('n', '\\f', '<cmd>Telescope find_files<CR>', opts)
-global_set_keymap('n', '\\r', '<cmd>Telescope live_grep<CR>', opts)
-global_set_keymap('n', '\\\\', '<cmd>Telescope buffers<CR>', opts)
-global_set_keymap('n', '\\;', '<cmd>Telescope help_tags<CR>', opts)
+global_set_keymap('n', '<leader>f', '<cmd>Telescope find_files<CR>', opts)
+global_set_keymap('n', '<leader>r', '<cmd>Telescope live_grep<CR>', opts)
+global_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', opts)
+global_set_keymap('n', '<leader>h', '<cmd>Telescope help_tags<CR>', opts)

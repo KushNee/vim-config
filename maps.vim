@@ -46,10 +46,6 @@ nmap ws :split<Return><C-w>w
 nmap wv :vsplit<Return><C-w>w
 " Move window
 nmap <Space> <C-w>w
-map w<left> <C-w>h
-map w<up> <C-w>k
-map w<down> <C-w>j
-map w<right> <C-w>l
 map wh <C-w>h
 map wk <C-w>k
 map wj <C-w>j

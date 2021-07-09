@@ -85,6 +85,8 @@ if &term =~ "screen"
   autocmd VimLeave * silent!  exe '!echo -n "\ek[`hostname`:`basename $PWD`]\e\\"'
 endif
 
+let mapleader = ";"
+
 "}}}
 
 " File types "{{{
