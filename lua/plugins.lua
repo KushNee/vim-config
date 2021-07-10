@@ -1,3 +1,4 @@
+vim.cmd([[autocmd BufWritePost plugins.lua source <afile> | PackerSync]])
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
@@ -12,7 +13,8 @@ return require('packer').startup(function()
       require('gitsigns').setup()
     end
   }
-  use 'cohama/lexima.vim'
+  -- autopairs
+  use 'windwp/nvim-autopairs'
   -- statusline
   use { 'hoob3rt/lualine.nvim', requires = {{'kyazdani42/nvim-web-devicons'}}}
   -- tabline
