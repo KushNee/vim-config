@@ -24,6 +24,7 @@ return require('packer').startup(function()
   -- lsp
   use { 'glepnir/lspsaga.nvim', requires= {{'neovim/nvim-lspconfig'}} }
   use 'folke/lsp-colors.nvim'
+  -- auto complete
   use 'hrsh7th/nvim-compe'
   -- syntax highlight
   use { 'nvim-treesitter/nvim-treesitter', run= ':TSUpdate' }
