@@ -22,6 +22,8 @@ set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set expandtab
+" 文件未保存时切换缓冲区由vim保存
+set hidden
 "let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*

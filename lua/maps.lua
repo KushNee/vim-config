@@ -29,3 +29,6 @@ vim.api.nvim_set_keymap('n', '<C-w><left>', '<C-w><', {})
 vim.api.nvim_set_keymap('n', '<C-w><right>', '<C-w>>', {})
 vim.api.nvim_set_keymap('n', '<C-w><up>', '<C-w>+', {})
 vim.api.nvim_set_keymap('n', '<C-w><down>', '<C-w>-', {})
+
+-- cancel search hightlight
+vim.api.nvim_set_keymap('n', '<leader>l', ':nohlsearch<CR>', {})

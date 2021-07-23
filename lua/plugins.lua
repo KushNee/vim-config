@@ -42,4 +42,6 @@ return require('packer').startup(function()
   use 'navarasu/onedark.nvim'
   -- enhanced motion
   use 'ggandor/lightspeed.nvim'
+  -- enhanced term experience
+  use 'akinsho/nvim-toggleterm.lua'
 end)

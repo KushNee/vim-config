@@ -78,6 +78,10 @@ local on_attach = function(client, bufnr)
   }
 end
 
+nvim_lsp.vuels.setup {
+  on_attach = on_attach
+}
+
 nvim_lsp.gopls.setup {
   on_attach = on_attach
 }
