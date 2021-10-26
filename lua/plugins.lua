@@ -20,7 +20,11 @@ return require('packer').startup(function()
   -- tabline
   use { 'crispgm/nvim-tabline'}
   -- file manager
-  use { 'ms-jpq/chadtree', branch = 'chad', run = 'python3 -m chadtree deps' }
+  use {
+      'kyazdani42/nvim-tree.lua',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function() require'nvim-tree'.setup {} end
+  }
   -- lsp
   use { 'glepnir/lspsaga.nvim', requires= {{'neovim/nvim-lspconfig'}} }
   use 'folke/lsp-colors.nvim'

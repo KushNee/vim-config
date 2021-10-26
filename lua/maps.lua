@@ -32,3 +32,6 @@ vim.api.nvim_set_keymap('n', '<C-w><down>', '<C-w>-', {})
 
 -- cancel search hightlight
 vim.api.nvim_set_keymap('n', '<leader>l', ':nohlsearch<CR>', {})
+
+-- nvim-tree
+vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {})
