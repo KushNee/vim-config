@@ -34,10 +34,17 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run= ':TSUpdate' }
   -- fuzzy finder
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
+  use {
+  "nvim-telescope/telescope-frecency.nvim",
+  config = function()
+    require"telescope".load_extension("frecency")
+  end,
+  requires = {"tami5/sqlite.lua"}
+}
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'TC72/telescope-tele-tabby.nvim'}
   -- key mapping cheatsheet
   use 'folke/which-key.nvim'
-  -- startup dashboard
-  use 'mhinz/vim-startify'
   -- markdown
   use { 'plasticboy/vim-markdown', requires = 'godlygeek/tabular' }
   use { 'mzlogin/vim-markdown-toc' }
