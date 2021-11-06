@@ -1,4 +1,4 @@
-local exist, tabline = pcall(require, "nvim-tabline")
+local exist, tabline = pcall(require, 'tabline')
 if (not exist) then return end
 
 tabline.setup {

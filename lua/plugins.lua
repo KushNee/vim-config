@@ -39,9 +39,16 @@ return require('packer').startup(function()
   -- startup dashboard
   use 'mhinz/vim-startify'
   -- markdown
-  use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end, ft = {'markdown'}}
-  -- org-mode
-  use {'kristijanhusak/orgmode.nvim'}
+  use { 'plasticboy/vim-markdown', requires = 'godlygeek/tabular' }
+  use { 'mzlogin/vim-markdown-toc' }
+  use({'jakewvincent/mkdnflow.nvim',
+     config = function()
+        require('mkdnflow').setup({
+            -- Config goes here; leave blank for defaults
+        })
+     end
+  })
+  use { 'euclio/vim-markdown-composer' }
   -- colorscheme
   use 'navarasu/onedark.nvim'
   -- enhanced motion

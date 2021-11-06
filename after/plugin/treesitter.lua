@@ -22,6 +22,7 @@ treesitter.setup {
     "gomod",
     "python",
     "lua",
+    "beancount"
   },
 }
 
