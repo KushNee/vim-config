@@ -41,6 +41,3 @@ telescope.setup{
 
 telescope.load_extension('frecency')
 telescope.load_extension('fzf')
-
-local function global_set_keymap(...) vim.api.nvim_set_keymap(...) end
-local opts = { noremap=true, silent=true }

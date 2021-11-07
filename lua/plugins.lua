@@ -34,13 +34,7 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run= ':TSUpdate' }
   -- fuzzy finder
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
-  use {
-  "nvim-telescope/telescope-frecency.nvim",
-  config = function()
-    require"telescope".load_extension("frecency")
-  end,
-  requires = {"tami5/sqlite.lua"}
-}
+  use { "nvim-telescope/telescope-frecency.nvim", requires = {"tami5/sqlite.lua"}}
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {'TC72/telescope-tele-tabby.nvim'}
   -- key mapping cheatsheet
@@ -62,4 +56,7 @@ return require('packer').startup(function()
   use 'ggandor/lightspeed.nvim'
   -- enhanced term experience
   use 'akinsho/nvim-toggleterm.lua'
+
+  -- im
+  use { 'ZSaberLv0/ZFVimIM', requires={{'ZSaberLv0/ZFVimJob', 'qdzhang/ZFVimIM_xiaohe'}}}
 end)

@@ -9,7 +9,8 @@ scriptencoding utf-8
 if !1 | finish | endif
 
 set nocompatible
-set relativenumber
+"set relativenumber
+set number
 syntax enable
 set encoding=utf-8
 set title
@@ -137,5 +138,40 @@ if exists("&termguicolors") && exists("&winblend")
 
   colorscheme onedark
 endif
+
+let g:ZFVimIM_symbolMap = {
+            \   ' ' : [''],
+            \   '`' : ['·'],
+            \   '!' : ['！'],
+            \   '$' : ['￥'],
+            \   '^' : ['……'],
+            \   '-' : [''],
+            \   '_' : ['——'],
+            \   '(' : ['（'],
+            \   ')' : ['）'],
+            \   '[' : ['【'],
+            \   ']' : ['】'],
+            \   '<' : ['《'],
+            \   '>' : ['》'],
+            \   '\' : ['、'],
+            \   '/' : ['、'],
+            \   ';' : ['；'],
+            \   ':' : ['：'],
+            \   ',' : ['，'],
+            \   '.' : ['。'],
+            \   '?' : ['？'],
+            \   "'" : ['‘', '’'],
+            \   '"' : ['“', '”'],
+            \   '0' : [''],
+            \   '1' : [''],
+            \   '2' : [''],
+            \   '3' : [''],
+            \   '4' : [''],
+            \   '5' : [''],
+            \   '6' : [''],
+            \   '7' : [''],
+            \   '8' : [''],
+            \   '9' : [''],
+            \ }
 
 "}}}
