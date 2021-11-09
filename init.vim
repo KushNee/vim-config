@@ -9,6 +9,7 @@ scriptencoding utf-8
 if !1 | finish | endif
 
 set nocompatible
+set autowriteall
 "set relativenumber
 set number
 syntax enable
@@ -175,3 +176,13 @@ let g:ZFVimIM_symbolMap = {
             \ }
 
 "}}}
+
+set guifont=JetBrainsMono\ Nerd\ Font:h14
+if exists('g:neoray')
+  NeoraySet CursorAnimTime 0
+  NeoraySet WindowState maximized
+end
+
+if exists(':GuiFont')
+  GuiFont JetBrains\ Mono:h15
+end

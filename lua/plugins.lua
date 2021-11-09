@@ -56,7 +56,4 @@ return require('packer').startup(function()
   use 'ggandor/lightspeed.nvim'
   -- enhanced term experience
   use 'akinsho/nvim-toggleterm.lua'
-
-  -- im
-  use { 'ZSaberLv0/ZFVimIM', requires={{'ZSaberLv0/ZFVimJob', 'qdzhang/ZFVimIM_xiaohe'}}}
 end)
