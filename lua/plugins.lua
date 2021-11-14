@@ -56,4 +56,12 @@ return require('packer').startup(function()
   use 'ggandor/lightspeed.nvim'
   -- enhanced term experience
   use 'akinsho/nvim-toggleterm.lua'
+  -- comment
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+
 end)
