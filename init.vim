@@ -29,6 +29,7 @@ set hidden
 "let loaded_matchparen = 1
 set shell=fish
 set backupskip=/tmp/*,/private/tmp/*
+set completeopt=menu,menuone,noselect
 
 " incremental substitution (neovim)
 if has('nvim')

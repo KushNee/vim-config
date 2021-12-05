@@ -3,18 +3,22 @@ if (not exist) then return end
 
 autopairs.setup()
 
-require("nvim-autopairs.completion.compe").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true -- it will auto insert `(` after select function or method item
-})
+-- If you want insert `(` after select function or method item
+--
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+
+require('nvim-autopairs').setup{
+  disable_filetype = { "TelescopePrompt" , "guihua", "guihua_rust", "clap_input" },
+  
+}
 
 
-_G.smart_confirm = function()
-  return vim.fn['compe#confirm'](autopairs.autopairs_cr())
+if vim.o.ft == 'clap_input' and vim.o.ft == 'guihua' and vim.o.ft == 'guihua_rust' then
+  require'cmp'.setup.buffer { completion = {enable = false} }
 end
 
-vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#complete()', { expr = true, silent = true, noremap = true })
-vim.api.nvim_set_keymap('i', '<CR>', 'v:lua.smart_confirm()', { expr = true, silent = true, noremap = true })
-vim.api.nvim_set_keymap('i', '<C-e>', "compe#close('<C-e>')", { expr = true, silent = true, noremap = true })
-vim.api.nvim_set_keymap('i', '<C-f>', "compe#scroll({ 'delta': +4 })", { expr = true, silent = true, noremap = true })
-vim.api.nvim_set_keymap('i', '<C-d>', "compe#scroll({ 'delta': -4 })", { expr = true, silent = true, noremap = true })
+-- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
+cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+

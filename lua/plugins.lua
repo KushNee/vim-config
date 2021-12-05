@@ -26,15 +26,20 @@ return require('packer').startup(function()
       config = function() require'nvim-tree'.setup {} end
   }
   -- lsp
-  use { 'glepnir/lspsaga.nvim', requires= {{'neovim/nvim-lspconfig'}} }
-  use 'folke/lsp-colors.nvim'
+  use { 'neovim/nvim-lspconfig' }
+  use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
   -- auto complete
-  use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
   -- syntax highlight
   use { 'nvim-treesitter/nvim-treesitter', run= ':TSUpdate' }
   -- fuzzy finder
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
   use { "nvim-telescope/telescope-frecency.nvim", requires = {"tami5/sqlite.lua"}}
+  use { "nvim-telescope/telescope-file-browser.nvim" }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {'TC72/telescope-tele-tabby.nvim'}
   -- key mapping cheatsheet
@@ -63,5 +68,8 @@ return require('packer').startup(function()
         require('Comment').setup()
     end
   }
+  -- snippet
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'saadparwaiz1/cmp_luasnip' }
 
 end)

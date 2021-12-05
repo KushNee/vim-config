@@ -62,12 +62,12 @@ require("which-key").setup({
 require('which-key').register({
   f = {
     name = "find",
-    f = {"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer=false }))<CR>", "find file"},
-    g = {"<cmd>lua require'telescope.builtin'.live_grep(require('telescope.themes').get_dropdown({ previewer=false }))<CR>", "find line"},
-    b = {"<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown({ previewer=false }))<CR>", "find buffer"},
-    h = {"<cmd>lua require'telescope.builtin'.help_tags(require('telescope.themes').get_dropdown({}))<CR>", "find tag"},
-    r = {"<cmd>lua require'telescope'.extensions.frecency.frecency(require('telescope.themes').get_dropdown({ previewer=false }))<CR>", "find recent file"},
-    t = {"<cmd>lua require'telescope'.extensions.tele_tabby.list(require('telescope.themes').get_dropdown({ previewer=false }))<CR>", "find tab"}
+    f = {"<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>", "file browser"},
+    g = {"<cmd>lua require'telescope.builtin'.live_grep()<CR>", "find line"},
+    b = {"<cmd>lua require'telescope.builtin'.buffers()<CR>", "find buffer"},
+    h = {"<cmd>lua require'telescope.builtin'.help_tags()<CR>", "find tag"},
+    r = {"<cmd>lua require'telescope'.extensions.frecency.frecency()<CR>", "find recent file"},
+    t = {"<cmd>lua require'telescope'.extensions.tele_tabby.list()<CR>", "find tab"}
   },
   q = {"<cmd>wqall<CR>", "Save and Leave"},
   w = {"<cmd>w<CR>", "Save"},
