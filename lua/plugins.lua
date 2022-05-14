@@ -55,16 +55,17 @@ return require('packer').startup(function()
   -- key mapping cheatsheet
   use 'folke/which-key.nvim'
   -- markdown
-  use { 'plasticboy/vim-markdown', requires = 'godlygeek/tabular' }
-  use { 'mzlogin/vim-markdown-toc' }
-  use({'jakewvincent/mkdnflow.nvim',
-     config = function()
-        require('mkdnflow').setup({
-            -- Config goes here; leave blank for defaults
-        })
-     end
-  })
-  use { 'euclio/vim-markdown-composer' }
+  use { 'preservim/vim-markdown', requires = 'godlygeek/tabular',
+    config = function()
+      vim.g.vim_markdown_folding_disabled = 1
+    end
+  }
+  use { 
+    "euclio/vim-markdown-composer",
+    config = function()
+      vim.g.markdown_composer_autostart = 0
+    end
+  }
   -- colorscheme
   use 'navarasu/onedark.nvim'
   -- enhanced motion
