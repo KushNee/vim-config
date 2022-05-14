@@ -142,44 +142,10 @@ if exists("&termguicolors") && exists("&winblend")
   colorscheme onedark
 endif
 
-let g:ZFVimIM_symbolMap = {
-            \   ' ' : [''],
-            \   '`' : ['·'],
-            \   '!' : ['！'],
-            \   '$' : ['￥'],
-            \   '^' : ['……'],
-            \   '-' : [''],
-            \   '_' : ['——'],
-            \   '(' : ['（'],
-            \   ')' : ['）'],
-            \   '[' : ['【'],
-            \   ']' : ['】'],
-            \   '<' : ['《'],
-            \   '>' : ['》'],
-            \   '\' : ['、'],
-            \   '/' : ['、'],
-            \   ';' : ['；'],
-            \   ':' : ['：'],
-            \   ',' : ['，'],
-            \   '.' : ['。'],
-            \   '?' : ['？'],
-            \   "'" : ['‘', '’'],
-            \   '"' : ['“', '”'],
-            \   '0' : [''],
-            \   '1' : [''],
-            \   '2' : [''],
-            \   '3' : [''],
-            \   '4' : [''],
-            \   '5' : [''],
-            \   '6' : [''],
-            \   '7' : [''],
-            \   '8' : [''],
-            \   '9' : [''],
-            \ }
-
 "}}}
 
-set guifont=JetBrainsMono\ Nerd\ Font:h14
+
+set guifont=JetBrainsMono\ Nerd\ Font:h15
 if exists('g:neoray')
   NeoraySet CursorAnimTime 0
   NeoraySet WindowState maximized
