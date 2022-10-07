@@ -16,7 +16,7 @@ return require('packer').startup(function()
   -- autopairs
   use 'windwp/nvim-autopairs'
   -- statusline
-  use { 'hoob3rt/lualine.nvim', requires = {{'kyazdani42/nvim-web-devicons'}}}
+  use { 'nvim-lualine/lualine.nvim', requires = {{'kyazdani42/nvim-web-devicons'}}}
   -- tabline
   use { 'crispgm/nvim-tabline'}
   -- file manager

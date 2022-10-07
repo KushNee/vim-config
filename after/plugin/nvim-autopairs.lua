@@ -20,5 +20,4 @@ if vim.o.ft == 'clap_input' and vim.o.ft == 'guihua' and vim.o.ft == 'guihua_rus
 end
 
 -- add a lisp filetype (wrap my-function), FYI: Hardcoded = { "clojure", "clojurescript", "fennel", "janet" }
-cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
