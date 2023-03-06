@@ -81,18 +81,7 @@ return require('packer').startup(function()
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   })
-  -- obsidian
-  use {
-    'epwalsh/obsidian.nvim',
-    config = function()
-      require("obsidian").setup({
-        dir = "~/second-brain",
-        completion = {
-        nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
-        }
-      })
-    end
-  }
+
   -- colorscheme
   use {
     'navarasu/onedark.nvim',
