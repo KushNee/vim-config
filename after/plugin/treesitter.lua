@@ -5,6 +5,7 @@ treesitter.setup {
   highlight = {
     enable = true,
     disable = {},
+    additional_vim_regex_highlighting = { "markdown" },
   },
   indent = {
     enable = false,
@@ -22,7 +23,9 @@ treesitter.setup {
     "gomod",
     "python",
     "lua",
-    "beancount"
+    "beancount",
+    "markdown",
+    "markdown_inline"
   },
 }
 

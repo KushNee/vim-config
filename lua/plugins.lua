@@ -23,20 +23,17 @@ return require('packer').startup(function()
   use {
       'kyazdani42/nvim-tree.lua',
       requires = 'kyazdani42/nvim-web-devicons',
-      config = function() require'nvim-tree'.setup {} end
+      config = function() 
+        require'nvim-tree'.setup {}
+      end
   }
   -- lsp
-  use { 'neovim/nvim-lspconfig' }
   use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-    end
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    require("mason").setup{},
+    require("mason-lspconfig").setup{}
   }
   -- auto complete
   use 'hrsh7th/cmp-nvim-lsp'
@@ -55,19 +52,98 @@ return require('packer').startup(function()
   -- key mapping cheatsheet
   use 'folke/which-key.nvim'
   -- markdown
-  use { 'preservim/vim-markdown', requires = 'godlygeek/tabular',
-    config = function()
-      vim.g.vim_markdown_folding_disabled = 1
-    end
-  }
   use { 
     "euclio/vim-markdown-composer",
     config = function()
       vim.g.markdown_composer_autostart = 0
     end
   }
+  use {
+    'ekickx/clipboard-image.nvim'
+  }
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
+  -- obsidian
+  use {
+    'epwalsh/obsidian.nvim',
+    config = function()
+      require("obsidian").setup({
+        dir = "~/second-brain",
+        completion = {
+        nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
+        }
+      })
+    end
+  }
+  -- auto change background
+  use {
+    'f-person/auto-dark-mode.nvim',
+    config = function()
+      local auto_dark_mode = require('auto-dark-mode')
+
+      auto_dark_mode.setup({
+      	update_interval = 1000,
+      	set_dark_mode = function()
+      		vim.api.nvim_set_option('background', 'dark')
+      		vim.cmd('colorscheme onedark')
+      	end,
+      	set_light_mode = function()
+      		vim.api.nvim_set_option('background', 'light')
+      		vim.cmd('colorscheme onedark')
+      	end,
+      })
+      auto_dark_mode.init()
+    end
+  }
   -- colorscheme
-  use 'navarasu/onedark.nvim'
+  use {
+    'navarasu/onedark.nvim',
+    config = function()
+      require('onedark').setup  {
+        -- Main options --
+        style = 'light', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+        transparent = false,  -- Show/hide background
+        term_colors = true, -- Change terminal color as per the selected theme style
+        ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+        cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+        -- toggle theme style ---
+        toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+        toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+        -- Change code style ---
+        -- Options are italic, bold, underline, none
+        -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
+        code_style = {
+            comments = 'italic',
+            keywords = 'none',
+            functions = 'none',
+            strings = 'none',
+            variables = 'none'
+        },
+
+        -- Lualine options --
+        lualine = {
+            transparent = false, -- lualine center bar transparency
+        },
+
+        -- Custom Highlights --
+        colors = {}, -- Override default colors
+        highlights = {}, -- Override highlight groups
+
+        -- Plugins Config --
+        diagnostics = {
+            darker = true, -- darker colors for diagnostic
+            undercurl = true,   -- use undercurl instead of underline for diagnostics
+            background = true,    -- use background color for virtual text
+        },
+      }
+    end
+  }
   -- enhanced motion
   use 'ggandor/lightspeed.nvim'
   -- enhanced term experience
