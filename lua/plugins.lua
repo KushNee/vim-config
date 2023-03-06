@@ -59,7 +59,21 @@ return require('packer').startup(function()
     end
   }
   use {
-    'ekickx/clipboard-image.nvim'
+    'ekickx/clipboard-image.nvim',
+    config = function()
+            require("clipboard-image").setup({
+                    default = {
+                            img_dir = {"images"},
+                            img_dir_txt = "/images",
+                            img_name = function ()
+                                vim.fn.inputsave()
+                                local name = vim.fn.input('Name: ')
+                                vim.fn.inputrestore()
+                                return name
+                            end,
+                    },
+            })
+            end
   }
   use({
     "iamcco/markdown-preview.nvim",
@@ -77,26 +91,6 @@ return require('packer').startup(function()
         nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
         }
       })
-    end
-  }
-  -- auto change background
-  use {
-    'f-person/auto-dark-mode.nvim',
-    config = function()
-      local auto_dark_mode = require('auto-dark-mode')
-
-      auto_dark_mode.setup({
-      	update_interval = 1000,
-      	set_dark_mode = function()
-      		vim.api.nvim_set_option('background', 'dark')
-      		vim.cmd('colorscheme onedark')
-      	end,
-      	set_light_mode = function()
-      		vim.api.nvim_set_option('background', 'light')
-      		vim.cmd('colorscheme onedark')
-      	end,
-      })
-      auto_dark_mode.init()
     end
   }
   -- colorscheme
@@ -142,6 +136,26 @@ return require('packer').startup(function()
             background = true,    -- use background color for virtual text
         },
       }
+    end
+  }
+  -- auto change background
+  use {
+    'f-person/auto-dark-mode.nvim',
+    config = function()
+      local auto_dark_mode = require('auto-dark-mode')
+
+      auto_dark_mode.setup({
+      	update_interval = 1000,
+      	set_dark_mode = function()
+      		vim.api.nvim_set_option('background', 'dark')
+      		vim.cmd('colorscheme onedark')
+      	end,
+      	set_light_mode = function()
+      		vim.api.nvim_set_option('background', 'light')
+      		vim.cmd('colorscheme onedark')
+      	end,
+      })
+      auto_dark_mode.init()
     end
   }
   -- enhanced motion

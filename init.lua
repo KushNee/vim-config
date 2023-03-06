@@ -3,7 +3,6 @@ vim.opt.relativenumber=true
 vim.o.syntax='enable'
 vim.o.encoding = 'utf-8'
 vim.o.title=true
-vim.o.background='light'
 vim.o.scrolloff=10
 vim.o.expandtab=true
 vim.o.shell='fish'
