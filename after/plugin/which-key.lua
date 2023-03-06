@@ -67,7 +67,8 @@ require('which-key').register({
     b = {"<cmd>lua require'telescope.builtin'.buffers()<CR>", "find buffer"},
     h = {"<cmd>lua require'telescope.builtin'.help_tags()<CR>", "find tag"},
     r = {"<cmd>lua require'telescope'.extensions.frecency.frecency()<CR>", "find recent file"},
-    t = {"<cmd>lua require'telescope'.extensions.tele_tabby.list()<CR>", "find tab"}
+    t = {"<cmd>lua require'telescope'.extensions.tele_tabby.list()<CR>", "find tab"},
+    l = {"<cmd>lua require'telescope'.extensions.heading.heading()<CR>", "find heading"},
   },
   q = {"<cmd>wqall<CR>", "Save and Leave"},
   w = {"<cmd>w<CR>", "Save"},

@@ -44,6 +44,8 @@ return require('packer').startup(function()
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   -- tab manager
   use {'TC72/telescope-tele-tabby.nvim'}
+  -- heading search
+  use('crispgm/telescope-heading.nvim')
   -- key mapping cheatsheet
   use 'folke/which-key.nvim'
   -- markdown
