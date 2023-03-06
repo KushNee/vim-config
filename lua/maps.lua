@@ -27,8 +27,5 @@ vim.api.nvim_set_keymap('n', '<C-w><right>', '<C-w>>', {})
 vim.api.nvim_set_keymap('n', '<C-w><up>', '<C-w>+', {})
 vim.api.nvim_set_keymap('n', '<C-w><down>', '<C-w>-', {})
 
--- nvim-tree
-vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', {})
-
 -- show which-key
 vim.api.nvim_set_keymap('n', '\'', ':WhichKey<CR>', { noremap=true })

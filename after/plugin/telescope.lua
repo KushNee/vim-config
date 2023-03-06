@@ -2,7 +2,14 @@ local exist, telescope = pcall(require, "telescope")
 if (not exist) then return end
 
 local actions = require('telescope.actions')
-local theme_opts = require('telescope.themes').get_dropdown{ previewer=false }
+local theme_opts = require('telescope.themes').get_dropdown {
+    winblend = 10,
+    border = true,
+    previewer = false,
+    shorten_path = false,
+    heigth=20,
+    width= 120
+}
 -- Global remapping
 ------------------------------
 telescope.setup{
@@ -11,6 +18,9 @@ telescope.setup{
       n = {
         ["q"] = actions.close
       },
+      i = {
+        ["<C-h>"] = "which_key"
+      }
     },
   },
   extensions = {
@@ -23,7 +33,7 @@ telescope.setup{
         ["conf"]    = "~/.config",
         ["data"]    = "~/.local/share",
         ["project"] = "~/projects",
-        ["wiki"]    = "~/wiki"
+        ["wiki"]    = "~/second-brain"
       }
     },
     fzf = {

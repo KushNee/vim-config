@@ -19,14 +19,6 @@ return require('packer').startup(function()
   use { 'nvim-lualine/lualine.nvim', requires = {{'kyazdani42/nvim-web-devicons'}}}
   -- tabline
   use { 'crispgm/nvim-tabline'}
-  -- file manager
-  use {
-      'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons',
-      config = function() 
-        require'nvim-tree'.setup {}
-      end
-  }
   -- lsp
   use {
     "williamboman/mason.nvim",
@@ -45,9 +37,12 @@ return require('packer').startup(function()
   use { 'nvim-treesitter/nvim-treesitter', run= ':TSUpdate' }
   -- fuzzy finder
   use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
+  -- recent file finder
   use { "nvim-telescope/telescope-frecency.nvim", requires = {"tami5/sqlite.lua"}}
+  -- file manager
   use { "nvim-telescope/telescope-file-browser.nvim" }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- tab manager
   use {'TC72/telescope-tele-tabby.nvim'}
   -- key mapping cheatsheet
   use 'folke/which-key.nvim'
@@ -61,19 +56,19 @@ return require('packer').startup(function()
   use {
     'ekickx/clipboard-image.nvim',
     config = function()
-            require("clipboard-image").setup({
-                    default = {
-                            img_dir = {"images"},
-                            img_dir_txt = "/images",
-                            img_name = function ()
-                                vim.fn.inputsave()
-                                local name = vim.fn.input('Name: ')
-                                vim.fn.inputrestore()
-                                return name
-                            end,
-                    },
-            })
-            end
+      require("clipboard-image").setup({
+        default = {
+          img_dir={"images"},
+          img_dir_txt="/images",
+          img_name = function ()
+            vim.fn.inputsave()
+            local name = vim.fn.input('Name: ')
+            vim.fn.inputrestore()
+            return name
+          end,
+        }
+      })
+    end
   }
   use({
     "iamcco/markdown-preview.nvim",

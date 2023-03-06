@@ -4,7 +4,10 @@ vim.o.syntax='enable'
 vim.o.encoding = 'utf-8'
 vim.o.title=true
 vim.o.scrolloff=10
+vim.o.autoindent=true
 vim.o.expandtab=true
+vim.o.tabstop=2
+vim.o.shiftwidth=2
 vim.o.shell='fish'
 vim.o.backupskip='/tmp/*,/private/tmp/*'
 vim.o.completeopt='menu,menuone,noselect'
@@ -21,6 +24,7 @@ vim.g.mapleader=' '
 vim.o.suffixesadd='.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md'
 vim.o.guifont='JetBrainsMono Nerd Font:h15'
 vim.o.pumblend=5
+
 
 require('plugins')
 require('macos')
