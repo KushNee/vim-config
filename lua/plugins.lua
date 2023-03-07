@@ -27,6 +27,10 @@ return require('packer').startup(function()
     require("mason").setup{},
     require("mason-lspconfig").setup{}
   }
+  -- nvim lua api
+  use {"folke/neodev.nvim",
+    require("neodev").setup({})
+  }
   -- auto complete
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'

@@ -81,7 +81,7 @@ cmp.setup.cmdline(':', {
 })
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -131,4 +131,16 @@ require('lspconfig')['marksman'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   capabilities = capabilities
+}
+require('lspconfig')['lua_ls'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace"
+      }
+    }
+  }
 }
