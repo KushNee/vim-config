@@ -150,8 +150,6 @@ return require('packer').startup(function()
   }
   -- enhanced motion
   use 'ggandor/lightspeed.nvim'
-  -- enhanced term experience
-  use 'akinsho/nvim-toggleterm.lua'
   -- comment
   use {
     'numToStr/Comment.nvim',
