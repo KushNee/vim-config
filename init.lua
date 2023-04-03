@@ -25,8 +25,20 @@ vim.o.suffixesadd='.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md'
 vim.o.guifont='JetBrainsMono Nerd Font:h15'
 vim.o.pumblend=5
 
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-require('plugins')
+require("lazy").setup("lazy_plugins")
 require('macos')
 require('maps')
 
@@ -34,3 +46,15 @@ require('maps')
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+if vim.g.neovide then
+  -- Helper function for transparency formatting
+  local alpha = function()
+    return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+  end
+  -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
+  vim.g.neovide_transparency = 1
+  vim.g.transparency = 1
+
+  vim.g.neovide_input_macos_alt_is_meta = false
+end

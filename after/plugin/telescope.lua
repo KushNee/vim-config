@@ -33,7 +33,7 @@ telescope.setup{
         ["conf"]    = "~/.config",
         ["data"]    = "~/.local/share",
         ["project"] = "~/projects",
-        ["wiki"]    = "~/second-brain"
+        ["wiki"]    = "~/knowledge-base"
       }
     },
     fzf = {
