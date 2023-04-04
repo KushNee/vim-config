@@ -78,9 +78,25 @@ return {
     end,
   },
   {
-    "echasnovski/mini.comment",
+    "numToStr/Comment.nvim",
     config = function()
-      require("mini.comment").setup()
+        require('Comment').setup({
+            ignore = '^$',
+            toggler = {
+                line = ';cc',
+                block = ';cb',
+            },
+            opleader = {},
+            extra = {
+              above = ";cO",
+              below = ";co",
+              eol = ";cA",
+            },
+            mappings = {
+              basic = true,
+              extra = true,
+            }
+        })
     end,
   },
   { "lukas-reineke/indent-blankline.nvim" },
