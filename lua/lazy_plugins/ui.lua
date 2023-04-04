@@ -13,16 +13,20 @@ return {
     {
         'projekt0n/github-nvim-theme',
         tag = "v0.0.7",
-        config = function()
-        require('github-theme').setup({
-            theme_style = 'light'
-        })
-        end
     },
     {
         'crispgm/nvim-tabline',
         dependencies = { 'nvim-tree/nvim-web-devicons' }, -- optional
-        config = true,
+        config = function ()
+          require("tabline").setup({
+           show_index = true,        -- show tab index
+           show_modify = true,       -- show buffer modification indicator
+           show_icon = false,        -- show file extension icon
+           modify_indicator = '[+]', -- modify indicator
+           no_name = 'No name',      -- no name buffer name
+           brackets = { '[', ']' },  -- file name brackets surrounding
+          })
+        end
     },
     {
         "f-person/auto-dark-mode.nvim",
@@ -34,11 +38,21 @@ return {
                     require('github-theme').setup({
                         theme_style = 'dark'
                     })
+                    require("lualine").setup({
+                      options = {
+                        theme = "github_dark"
+                      }
+                    })
                 end,
                 set_light_mode = function()
                     vim.api.nvim_set_option('background', 'light')
                     require('github-theme').setup({
                         theme_style = 'light'
+                    })
+                    require("lualine").setup({
+                      options = {
+                        theme = "github_light"
+                      }
                     })
                 end
             }

@@ -42,6 +42,8 @@ require("lazy").setup("lazy_plugins")
 require('macos')
 require('maps')
 
+require("auto-dark-mode").init()
+
 -- config for nvim-tree
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
