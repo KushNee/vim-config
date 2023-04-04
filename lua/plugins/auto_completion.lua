@@ -92,18 +92,16 @@ return {
 
 			-- Set up lspconfig.
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local lspconfig = require("lspconfig")
 
-			require("lspconfig")["gopls"].setup({
-				capabilities = capabilities,
-			})
-			require("lspconfig")["pyright"].setup({
-				capabilities = capabilities,
-			})
-			require("lspconfig")["marksman"].setup({
-				capabilities = capabilities,
-			})
-			require("lspconfig")["lua_ls"].setup({
-				capabilities = capabilities,
+      local servers = {"gopls", "pyright", "marksman", "lua_ls"}
+      for _, lsp in pairs(servers) do
+        lspconfig[lsp].setup({
+          capabilities = capabilities,
+        })
+      end
+
+			lspconfig["lua_ls"].setup({
 				settings = {
 					Lua = {
 						completion = {

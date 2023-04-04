@@ -3,7 +3,7 @@ return {
     "folke/which-key.nvim",
     config = function()
       vim.o.timeout = true
-      vim.o.timeoutlen = 303
+      vim.o.timeoutlen = 300
       require("which-key").register({
         f = {
           name = "find",
@@ -54,6 +54,11 @@ return {
       })
     end,
   },
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
-  "folke/neodev.nvim",
+  {
+    "folke/neodev.nvim",
+    config = function ()
+      -- need setup neodev BEFORE lspconfig
+      require("neodev").setup({})
+    end
+  }
 }
