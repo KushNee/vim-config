@@ -38,16 +38,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("lazy_plugins")
-require('macos')
-require('maps')
-
-require("auto-dark-mode").init()
+require("lazy").setup("plugins")
 
 -- config for nvim-tree
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- for macos
+vim.opt.clipboard:append("unnamedplus")
 
 if vim.g.neovide then
   -- Helper function for transparency formatting
