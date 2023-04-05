@@ -15,9 +15,6 @@ return {
             n = {
               ["q"] = actions.close,
             },
-            i = {
-              ["<C-h>"] = "which_key",
-            },
           },
         },
         pickers = {
@@ -54,6 +51,7 @@ return {
         },
       })
 
+      telescope.load_extension("project")
       telescope.load_extension("tele_tabby")
       telescope.load_extension("fzf")
       telescope.load_extension("file_browser")
@@ -69,9 +67,20 @@ return {
     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   {
+    "nvim-telescope/telescope-project.nvim",
+  },
+  {
     "TC72/telescope-tele-tabby.nvim",
   },
   {
     "crispgm/telescope-heading.nvim",
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
   },
 }
