@@ -29,7 +29,6 @@ return {
 					f = { "<cmd>lua require('neogit').open({ kind = 'floating' })<CR>", "open floating panel" },
 					v = { "<cmd>lua require('neogit').open({ kind = 'vsplit' })<CR>", "open vsplit panel" },
 				},
-				q = { "<cmd>wqall<CR>", "Save and Leave" },
 				w = { "<cmd>w<CR>", "Save" },
 				d = { '"_d', "Delete without yank" },
 				l = {
@@ -71,8 +70,6 @@ return {
 				["<Tab>"] = { ":tabnext<CR>", "next tab" },
 				["<S-Tab>"] = { ":tabprev<CR>", "previous tab" },
 				K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "show info" },
-        [":"] = { "<cmd>FineCmdline<CR>", "floating command line"},
-        ["/"] = { ":SearchBoxIncSearch<CR>", "floating search"},
 			})
 
 			require("which-key").register({
