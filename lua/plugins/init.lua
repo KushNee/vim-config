@@ -71,6 +71,8 @@ return {
 				["<Tab>"] = { ":tabnext<CR>", "next tab" },
 				["<S-Tab>"] = { ":tabprev<CR>", "previous tab" },
 				K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "show info" },
+        [":"] = { "<cmd>FineCmdline<CR>", "floating command line"},
+        ["/"] = { ":SearchBoxIncSearch<CR>", "floating search"},
 			})
 
 			require("which-key").register({

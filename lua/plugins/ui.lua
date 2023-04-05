@@ -86,4 +86,12 @@ return {
   --     })
   --   end,
   -- },
+  {
+    "VonHeikemen/fine-cmdline.nvim",
+    dependencies = {"MunifTanjim/nui.nvim"},
+  },
+  {
+    "VonHeikemen/searchbox.nvim",
+    dependencies = {"MunifTanjim/nui.nvim"},
+  }
 }
