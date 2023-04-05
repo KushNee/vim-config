@@ -40,6 +40,12 @@ return {
         c = {
           name = "comment",
         },
+        g = {
+          name = "git",
+          f = { "<cmd>lua require('neogit').open({ kind = 'floating' })<CR>", "open floating panel"},
+          v = { "<cmd>lua require('neogit').open({ kind = 'vsplit' })<CR>", "open vsplit panel"},
+
+        },
       }, { prefix = ";" })
 
       require("which-key").register({
