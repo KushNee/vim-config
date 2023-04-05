@@ -33,9 +33,9 @@ return {
       require("which-key").register({
         l = { "<cmd>nohlsearch<CR>", "Cancel highlight" },
         c = {
-          name = "comment"
-        }
-      },{ prefix = ";" })
+          name = "comment",
+        },
+      }, { prefix = ";" })
 
       require("which-key").register({
         ["'"] = { ":WhichKey<CR>", "show keys" },
@@ -53,13 +53,21 @@ return {
         ["<S-Tab>"] = { ":tabprev<CR>", "previous tab" },
         K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "show info" },
       })
+
+      require("which-key").register({
+        j = {
+          k = { "<esc>", "back to normal" },
+        },
+      }, {
+        mode = "i",
+      })
     end,
   },
   {
     "folke/neodev.nvim",
-    config = function ()
+    config = function()
       -- need setup neodev BEFORE lspconfig
       require("neodev").setup({})
-    end
-  }
+    end,
+  },
 }

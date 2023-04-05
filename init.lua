@@ -58,4 +58,6 @@ if vim.g.neovide then
   vim.g.transparency = 1
 
   vim.g.neovide_input_macos_alt_is_meta = false
+  vim.g.neovide_cursor_animate_command_line = false
+  vim.g.neovide_cursor_animate_in_insert_mode = false
 end
