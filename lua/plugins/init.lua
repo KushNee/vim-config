@@ -4,6 +4,11 @@ return {
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
+      require("which-key").setup({
+        window = {
+          position = "top",
+        }
+      })
       require("which-key").register({
         f = {
           name = "find",
@@ -11,8 +16,8 @@ return {
           g = { "<cmd>lua require'telescope.builtin'.live_grep()<CR>", "find line" },
           b = { "<cmd>lua require'telescope.builtin'.buffers()<CR>", "find buffer" },
           h = { "<cmd>lua require'telescope.builtin'.help_tags()<CR>", "find tag" },
-          r = { "<cmd>lua require'telescope'.extensions.frecency.frecency()<CR>", "find recent file" },
-          t = { "<cmd>lua require'telescope'.extensions.tele_tabby.list()<CR>", "find tab" },
+          r = { "<cmd>lua require'telescope.builtin'.oldfiles()<CR>", "find recent file" },
+          t = { "<cmd>lua require'telescope'.extensions.tele_tabby.list(require('telescope.themes').get_ivy())<CR>", "find tab" },
           l = { "<cmd>lua require'telescope'.extensions.heading.heading()<CR>", "find heading" },
         },
         q = { "<cmd>wqall<CR>", "Save and Leave" },

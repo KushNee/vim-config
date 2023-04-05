@@ -6,6 +6,8 @@ return {
     config = function()
       local telescope = require("telescope")
       local actions = require("telescope.actions")
+      local themes = require("telescope.themes")
+      local global_theme = "ivy"
 
       telescope.setup({
         defaults = {
@@ -19,22 +21,22 @@ return {
           },
         },
         pickers = {
-          find_files = {
-            theme = "dropdown",
+          live_grep = {
+            theme = global_theme,
+          },
+          oldfiles = {
+            theme = global_theme,
+          },
+          buffers = {
+            theme = global_theme,
+          },
+          help_tags = {
+            theme = global_theme,
           },
         },
         extensions = {
-          frecency = {
-            show_scores = false,
-            show_unindexed = true,
-            ignore_patterns = { "*.git/*", "*/tmp/*" },
-            disable_devicons = false,
-            workspaces = {
-              ["conf"] = "~/.config",
-              ["data"] = "~/.local/share",
-              ["project"] = "~/projects",
-              ["wiki"] = "~/knowledge-base",
-            },
+          file_browser = {
+            theme = global_theme,
           },
           fzf = {
             fuzzy = true,             -- false will only do exact matching
@@ -52,15 +54,11 @@ return {
         },
       })
 
-      telescope.load_extension("frecency")
+      telescope.load_extension("tele_tabby")
       telescope.load_extension("fzf")
       telescope.load_extension("file_browser")
       telescope.load_extension("heading")
     end,
-  },
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    dependencies = { "kkharji/sqlite.lua" },
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
