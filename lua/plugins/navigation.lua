@@ -82,6 +82,14 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     },
+    config = function ()
+        require("neo-tree").setup({
+            close_if_last_window = true,
+            filesystem = {
+                hijack_netrw_behavior = "open_default"
+            },
+        })
+    end
   },
   {
     "s1n7ax/nvim-window-picker",

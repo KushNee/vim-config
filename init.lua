@@ -42,10 +42,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
--- config for nvim-tree
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- connect to system clipboard
 vim.opt.clipboard:append("unnamedplus")
