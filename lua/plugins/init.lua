@@ -10,6 +10,7 @@ return {
                 },
             })
             require("which-key").register({
+                c = { "<cmd>nohlsearch<CR>", "Cancel highlight" },
                 f = {
                     name = "find",
                     f = { "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>", "file browser" },
@@ -49,7 +50,6 @@ return {
             }, { prefix = "<leader>" })
 
             require("which-key").register({
-                l = { "<cmd>nohlsearch<CR>", "Cancel highlight" },
                 c = {
                     name = "comment",
                 },
