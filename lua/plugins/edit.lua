@@ -111,6 +111,7 @@ return {
 				integrations = {
 					diffview = true,
 				},
+                disable_commit_confirmation = true,
 			})
 		end,
 	},
