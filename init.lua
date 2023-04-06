@@ -47,7 +47,7 @@ require("lazy").setup("plugins")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- for macos
+-- connect to system clipboard
 vim.opt.clipboard:append("unnamedplus")
 
 if vim.g.neovide then

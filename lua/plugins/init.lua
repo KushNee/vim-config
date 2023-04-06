@@ -69,8 +69,6 @@ return {
                 ["<C-a>"] = { "gg<S-v>G", "select all" },
                 ["<Tab>"] = { ":tabnext<CR>", "next tab" },
                 ["<S-Tab>"] = { ":tabprev<CR>", "previous tab" },
-                [":"] = { "<cmd>FineCmdline<CR>", "floating command line" },
-                ["/"] = { ":SearchBoxIncSearch<CR>", "floating search" },
                 K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "show info" },
             })
 
