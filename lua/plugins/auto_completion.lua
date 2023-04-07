@@ -5,9 +5,13 @@ return {
 	{ "hrsh7th/cmp-cmdline" },
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"onsails/lspkind.nvim",
+		},
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			local lspkind = require("lspkind")
 
 			local has_words_before = function()
 				unpack = unpack or table.unpack
@@ -16,6 +20,18 @@ return {
 					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 			end
 			cmp.setup({
+				formatting = {
+					format = lspkind.cmp_format({
+						mode = "symbol_text",
+						menu = {
+							buffer = "[Buffer]",
+							nvim_lsp = "[LSP]",
+							luasnip = "[LuaSnip]",
+							nvim_lua = "[Lua]",
+							latex_symbols = "[Latex]",
+						},
+					}),
+				},
 				snippet = {
 					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)
@@ -112,6 +128,13 @@ return {
 			end
 		end,
 	},
-	{ "L3MON4D3/LuaSnip" },
+	{
+        "L3MON4D3/LuaSnip",
+        version = "1.*",
+        config = function ()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end
+    },
 	{ "saadparwaiz1/cmp_luasnip" },
+    { "rafamadriz/friendly-snippets" },
 }
