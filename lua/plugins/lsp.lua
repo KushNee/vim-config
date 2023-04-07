@@ -13,6 +13,12 @@ return {
         },
         config = function()
             local lspconfig = require("lspconfig")
+			local servers = { "gopls", "pyright", "marksman", "lua_ls", "jsonls" }
+
+			for _, lsp in pairs(servers) do
+				lspconfig[lsp].setup({
+				})
+			end
             lspconfig["lua_ls"].setup({
                 settings = {
                     Lua = {
