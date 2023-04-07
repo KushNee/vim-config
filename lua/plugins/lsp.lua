@@ -1,5 +1,10 @@
 return {
-  { "neovim/nvim-lspconfig" },
+  { 
+      "neovim/nvim-lspconfig",
+      dependencies = {
+          "folke/neodev.nvim",
+      }
+  },
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
@@ -24,5 +29,17 @@ return {
         },
       })
     end,
+  },
+  {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    config = function()
+        require("lspsaga").setup({})
+    end,
+    dependencies = {
+      {"nvim-tree/nvim-web-devicons"},
+      --Please make sure you install markdown and markdown_inline parser
+      {"nvim-treesitter/nvim-treesitter"}
+    }
   },
 }
