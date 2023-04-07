@@ -31,7 +31,7 @@ return {
 					disable = {},
 				},
 				ensure_installed = {
-                    "kdl",
+					"kdl",
 					"tsx",
 					"toml",
 					"bash",
@@ -112,14 +112,25 @@ return {
 				integrations = {
 					diffview = true,
 				},
-                disable_commit_confirmation = true,
+				disable_commit_confirmation = true,
 			})
 		end,
 	},
-    {
-        "Pocco81/auto-save.nvim",
-        config = function ()
-            require("auto-save").setup({})
-        end
-    }
+	{
+		"okuuva/auto-save.nvim",
+		config = function()
+			require("auto-save").setup({
+				execution_message = {
+					enabled = true,
+					message = function() -- message to print on save
+						return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
+					end,
+					dim = 0.18, -- dim the color of `message`
+					cleaning_interval = 300, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+				},
+				debounce_delay = 10000,
+			})
+		end,
+	},
 }
+--

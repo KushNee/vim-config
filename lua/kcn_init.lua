@@ -22,10 +22,11 @@ vim.opt.termguicolors=true
 vim.opt.wildmode = "longest:full"
 
 vim.opt.cursorline=true
-vim.g.mapleader=' '
 vim.opt.suffixesadd='.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md'
 vim.opt.guifont='JetBrainsMono Nerd Font:h15'
 vim.opt.pumblend=5
+
+vim.g.mapleader=' '
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
