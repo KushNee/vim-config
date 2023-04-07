@@ -17,7 +17,8 @@ return {
 					g = { "<cmd>lua require'telescope.builtin'.live_grep()<CR>", "find line" },
 					b = { "<cmd>lua require'telescope.builtin'.buffers()<CR>", "find buffer" },
 					h = { "<cmd>lua require'telescope.builtin'.help_tags()<CR>", "find tag" },
-					r = { "<cmd>lua require'telescope.builtin'.oldfiles()<CR>", "find recent file" },
+					r = { "<cmd>lua require'telescope.builtin'.oldfiles({cwd_only=true})<CR>", "find recent file cwd only" },
+					R = { "<cmd>lua require'telescope.builtin'.oldfiles()<CR>", "find recent file globally" },
 					t = {
 						"<cmd>lua require'telescope'.extensions.tele_tabby.list(require('telescope.themes').get_ivy())<CR>",
 						"find tab",
