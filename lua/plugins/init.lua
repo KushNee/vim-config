@@ -30,7 +30,15 @@ return {
                     f = { "<cmd>lua require('neogit').open({ kind = 'floating' })<CR>", "open floating panel" },
                     v = { "<cmd>lua require('neogit').open({ kind = 'vsplit' })<CR>", "open vsplit panel" },
                 },
-                w = { "<cmd>w<CR>", "Save" },
+                w = {
+                    name = "windows",
+                    h = { "<C-w>h", "left window" },
+                    k = { "<C-w>k", "upper window" },
+                    j = { "<C-w>j", "below window" },
+                    l = { "<C-w>l", "right window" },
+                    s = { ":split<Return><C-w>w", "split window" },
+                    v = { ":vsplit<Return><C-w>w", "vsplit window" },
+                },
                 d = { '"_d', "Delete without yank" },
                 l = {
                     name = "lsp",
@@ -57,16 +65,6 @@ return {
 
             require("which-key").register({
                 ["'"] = { ":WhichKey<CR>", "show keys" },
-                w = {
-                    name = "windows",
-                    h = { "<C-w>h", "left window" },
-                    k = { "<C-w>k", "upper window" },
-                    j = { "<C-w>j", "below window" },
-                    l = { "<C-w>l", "right window" },
-                    s = { ":split<Return><C-w>w", "split window" },
-                    v = { ":vsplit<Return><C-w>w", "vsplit window" },
-                },
-                ["<C-a>"] = { "gg<S-v>G", "select all" },
                 ["<Tab>"] = { ":tabnext<CR>", "next tab" },
                 ["<S-Tab>"] = { ":tabprev<CR>", "previous tab" },
                 K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "show info" },

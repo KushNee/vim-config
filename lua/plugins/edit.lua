@@ -31,6 +31,7 @@ return {
 					disable = {},
 				},
 				ensure_installed = {
+                    "kdl",
 					"tsx",
 					"toml",
 					"bash",
@@ -115,4 +116,10 @@ return {
 			})
 		end,
 	},
+    {
+        "Pocco81/auto-save.nvim",
+        config = function ()
+            require("auto-save").setup({})
+        end
+    }
 }
