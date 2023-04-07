@@ -1,12 +1,5 @@
 return {
 	{
-		"folke/neodev.nvim",
-		config = function()
-			-- need setup neodev BEFORE lspconfig
-			require("neodev").setup({})
-		end,
-	},
-	{
 		"folke/which-key.nvim",
 		config = function()
 			vim.o.timeout = true
@@ -45,14 +38,22 @@ return {
 					l = { "<C-w>l", "right window" },
 					s = { ":split<Return><C-w>w", "split window" },
 					v = { ":vsplit<Return><C-w>w", "vsplit window" },
+					p = {
+						function()
+                            local picker = require('window-picker')
+							local picked_window_id = picker.pick_window() or vim.api.nvim_get_current_win()
+							vim.api.nvim_set_current_win(picked_window_id)
+						end,
+						"pick a window",
+					},
 				},
 				d = { '"_d', "Delete without yank" },
 				l = {
 					name = "lsp",
 					f = { "<cmd>lua vim.lsp.buf.format({ timeout_ms = 2003 })<CR>", "format" },
-                    o = { "<cmd>Lspsaga outline<CR>", "toogle outline" },
-                    p = { "<cmd>Lspsaga peek_definition<CR>", "peek definition" },
-                    d = { "<cmd>Lspsaga goto_definition<CR>", "go to definition" },
+					o = { "<cmd>Lspsaga outline<CR>", "toogle outline" },
+					p = { "<cmd>Lspsaga peek_definition<CR>", "peek definition" },
+					d = { "<cmd>Lspsaga goto_definition<CR>", "go to definition" },
 				},
 				t = {
 					name = "tab",
@@ -62,6 +63,7 @@ return {
 				},
 				n = {
 					name = "neo-tree",
+                    f = { ":Neotree<CR>", "move focus to neo-tree" },
 					t = { ":Neotree toggle<CR>", "toggle neo-tree, and move to panel" },
 					s = { ":Neotree show toggle<CR>", "toggle show neo-tree" },
 				},
