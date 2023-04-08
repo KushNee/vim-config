@@ -1,6 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "8d3aa5c22c2d45e788c7a5fe13ad77368b783c20" },
   "LuaSnip": { "branch": "master", "commit": "500981ff6cefc7343e3959ef0f939bd0bfd49ba9" },
+  "NeoZoom.lua": { "branch": "main", "commit": "33a45965f99b24a8e7da98f9c976285f946689fe" },
   "auto-dark-mode.nvim": { "branch": "master", "commit": "a02ff9ee4630dd8e81dc097b486b7c7f468b9db7" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "8fcc934a52af96120fe26358985c10c035984b53" },
@@ -40,6 +41,7 @@
   "telescope-heading.nvim": { "branch": "main", "commit": "39e549c8dbe24bdf4545547ab9cebf2ab6597bc2" },
   "telescope-project.nvim": { "branch": "master", "commit": "fa081e35ba7397e5147a51ece693aa3afda167fc" },
   "telescope-tele-tabby.nvim": { "branch": "main", "commit": "e58710e9ef5aecbf7b16e0c2e5d7959d46ec55fc" },
+  "telescope-zoxide": { "branch": "main", "commit": "68966349aa1b8e9ade403e18479ecf79447389a7" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "766a45a972408f67e793a3b63e3c419ff5458753" },
   "which-key.nvim": { "branch": "main", "commit": "4b73390eec680b4c061ea175eb32c0ff3412271d" }
 }

@@ -25,6 +25,7 @@ return {
 					},
 					l = { "<cmd>lua require'telescope'.extensions.heading.heading()<CR>", "find heading" },
 					p = { "<cmd>lua require('telescope').extensions.project.project()<CR>", "find project" },
+                    z = { "<cmd>lua require('telescope').extensions.zoxide.list(require('telescope.themes').get_ivy())<CR>", "autojump" },
 				},
 				g = {
 					name = "git",
@@ -33,10 +34,6 @@ return {
 				},
 				w = {
 					name = "windows",
-					h = { "<C-w>h", "left window" },
-					k = { "<C-w>k", "upper window" },
-					j = { "<C-w>j", "below window" },
-					l = { "<C-w>l", "right window" },
 					s = { ":split<Return><C-w>w", "split window" },
 					v = { ":vsplit<Return><C-w>w", "vsplit window" },
 					p = {
