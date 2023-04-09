@@ -65,7 +65,7 @@ return {
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         },
-        cond = not vim.fn.has('gui_running'),
+        cond = vim.fn.has("gui_running") == 0 and true or false,
         config = function()
             require("noice").setup({
                 lsp = {
@@ -78,11 +78,11 @@ return {
                 },
                 -- you can enable a preset for easier configuration
                 presets = {
-                    bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
+                    bottom_search = true,         -- use a classic bottom cmdline for search
+                    command_palette = true,       -- position the cmdline and popupmenu together
                     long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = false, -- add a border to hover docs and signature help
+                    inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+                    lsp_doc_border = false,       -- add a border to hover docs and signature help
                 },
             })
         end,
@@ -92,7 +92,7 @@ return {
         dependencies = {
             "MunifTanjim/nui.nvim",
         },
-        cond = vim.fn.has('gui_running'),
+        cond = vim.fn.has('gui_running') == 1 and true or false,
         config = function()
             require("fine-cmdline").setup()
             vim.keymap.set('n', ':', '<cmd>FineCmdline<CR>')
@@ -103,8 +103,8 @@ return {
         dependencies = {
             "MunifTanjim/nui.nvim",
         },
-        cond = vim.fn.has('gui_running'),
-        config = function ()
+        cond = vim.fn.has('gui_running') == 1 and true or false,
+        config = function()
             require("searchbox").setup()
             vim.keymap.set('n', '/', ':SearchBoxIncSearch<CR>')
         end
