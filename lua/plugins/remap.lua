@@ -62,7 +62,6 @@ return {
 				n = {
 					name = "neo-tree",
                     f = { ":Neotree<CR>", "move focus to neo-tree" },
-					t = { ":Neotree toggle<CR>", "toggle neo-tree, and move to panel" },
 					s = { ":Neotree show toggle<CR>", "toggle show neo-tree" },
 				},
 			}, { prefix = "<leader>" })
