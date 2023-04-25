@@ -17,6 +17,9 @@ return {
         end,
     },
     {
+        "TornaxO7/tree-setter",
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
@@ -31,23 +34,36 @@ return {
                     disable = {},
                 },
                 ensure_installed = {
-                    "kdl",
+                    -- frontend
+                    "css",
+                    "scss",
+                    "html",
+                    "javascript",
+                    "typescript",
                     "tsx",
+
+                    "kdl",
                     "toml",
                     "bash",
                     "fish",
                     "json",
                     "yaml",
-                    "html",
-                    "scss",
+
                     "go",
                     "gomod",
+
+                    "rust",
+                    "zig",
                     "python",
                     "lua",
+
                     "vim",
                     "regex",
                     "markdown",
                     "markdown_inline",
+                },
+                tree_setter = {
+                    enable = true
                 },
             })
 
@@ -105,15 +121,20 @@ return {
         "TimUntersberger/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "sindrets/diffview.nvim",
         },
         config = function()
             require("neogit").setup({
-                integrations = {
-                    diffview = true,
-                },
                 disable_commit_confirmation = true,
             })
         end,
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = function()
+            require("toggleterm").setup({
+                open_mapping = [[<c-\>]],
+            })
+        end
     },
 }

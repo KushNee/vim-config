@@ -78,6 +78,8 @@ return {
 				["<S-Tab>"] = { ":tabprev<CR>", "previous tab" },
 				K = { "<cmd>Lspsaga hover_doc<CR>", "show info" },
 				["<M-CR>"] = { "<cmd>Lspsaga code_action<CR>", "code action" },
+                ["[e"] = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "prev diagnostic" },
+                ["]e"] = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "next diagnostic" },
 			})
 
 			require("which-key").register({
