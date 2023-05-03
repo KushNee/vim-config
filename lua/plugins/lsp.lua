@@ -50,7 +50,9 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("mason-lspconfig").setup()
+            require("mason-lspconfig").setup({
+                ensure_installed = { "gopls", "marksman", "lua_ls", "jsonls", "zls", "rust_analyzer", "tsserver" }
+            })
         end,
     },
     {

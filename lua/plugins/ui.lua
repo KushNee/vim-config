@@ -1,5 +1,11 @@
 return {
     {
+        "tiagovla/scope.nvim",
+        config = function()
+            require("scope").setup {}
+        end,
+    },
+    {
         "nvim-lualine/lualine.nvim",
         dependencies = { "github-nvim-theme" },
         config = function()
@@ -9,6 +15,21 @@ return {
                     component_separators = "|",
                     section_separators = "",
                 },
+                sections = {
+                    lualine_a = {
+                        {
+                            'tabs',
+                            max_length = vim.o.columns / 3, -- Maximum width of tabs component.
+                            -- Note:
+                            -- It can also be a function that returns
+                            -- the value of `max_length` dynamically.
+                            mode = 2, -- 0: Shows tab_nr
+                            -- 1: Shows tab_name
+                            -- 2: Shows tab_nr + tab_name
+                        }
+                    }
+                },
+                extensions = { "neo-tree", "quickfix", "toggleterm", "lazy" },
             })
         end,
     },
@@ -19,7 +40,12 @@ return {
     {
         "crispgm/nvim-tabline",
         dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional
-        config = true,
+        config = function()
+            require('tabline').setup({
+                show_icon = true, -- show file extension icon
+            })
+            return true
+        end,
     },
     {
         "f-person/auto-dark-mode.nvim",

@@ -56,8 +56,10 @@ return {
 				t = {
 					name = "tab",
 					e = { ":tabedit", "edit specified file in new tab" },
-					n = { ":tabnew<CR>", "create new tab" },
+					o = { ":tabnew<CR>", "create new tab" },
 					d = { ":tabclose<CR>", "close tab" },
+                    p = { ":tabp<CR>", "previous tab"},
+                    n = { ":tabn<CR>", "next tab"},
 				},
 				n = {
 					name = "neo-tree",
