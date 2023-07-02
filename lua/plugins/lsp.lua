@@ -73,4 +73,11 @@ return {
             { "nvim-treesitter/nvim-treesitter" },
         },
     },
+    {
+        "j-hui/fidget.nvim",
+        tag = "legacy",
+        config = function ()
+            require("fidget").setup({})
+        end
+    }
 }
