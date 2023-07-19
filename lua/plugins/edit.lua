@@ -118,7 +118,7 @@ return {
     },
     { "lukas-reineke/indent-blankline.nvim" },
     {
-        "TimUntersberger/neogit",
+        "NeogitOrg/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
