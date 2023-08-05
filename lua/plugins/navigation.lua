@@ -100,10 +100,36 @@ return {
     },
     {
         "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
+            {
+                "s1n7ax/nvim-window-picker",
+                name = "window-picker",
+                event = "VeryLazy",
+                version = "2.*",
+                config = function()
+                    require("window-picker").setup({
+                        hint = "floating-big-letter",
+                        autoselect_one = true,
+                        include_current = false,
+                        filter_rules = {
+                            -- filter using buffer options
+                            bo = {
+                                -- if the file type is one of following, the window will be ignored
+                                filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+
+                                -- if the buffer type is one of following, the window will be ignored
+                                buftype = { 'terminal', "quickfix" },
+                            },
+                        },
+                        show_prompt = false,
+                        -- other_win_hl_color = '#44cc41',
+                    })
+                end,
+            },
         },
         config = function()
             require("neo-tree").setup({
@@ -123,56 +149,4 @@ return {
             })
         end,
     },
-    {
-        "s1n7ax/nvim-window-picker",
-        config = function()
-            require("window-picker").setup({
-                show_prompt = false,
-                other_win_hl_color = '#44cc41',
-            })
-        end,
-    },
-    {
-        "nyngwang/NeoZoom.lua",
-        config = function()
-            require('neo-zoom').setup {
-                winopts = {
-                    offset = {
-                        -- NOTE: you can omit `top` and/or `left` to center the floating window.
-                        -- top = 0,
-                        -- left = 0.17,
-                        width = 0.9,
-                        height = 0.9,
-                    },
-                    -- NOTE: check :help nvim_open_win() for possible border values.
-                    -- border = 'double',
-                },
-                -- exclude_filetypes = { 'lspinfo', 'mason', 'lazy', 'fzf', 'qf' },
-                exclude_buftypes = { 'terminal' },
-                presets = {
-                    {
-                        filetypes = { 'dapui_.*', 'dap-repl' },
-                        config = {
-                            top = 0.25,
-                            left = 0.6,
-                            width = 0.4,
-                            height = 0.65,
-                        },
-                        callbacks = {
-                            function() vim.wo.wrap = true end,
-                        },
-                    },
-                },
-                -- popup = {
-                --   -- NOTE: Add popup-effect (replace the window on-zoom with a `[No Name]`).
-                --   -- This way you won't see two windows of the same buffer
-                --   -- got updated at the same time.
-                --   enabled = true,
-                --   exclude_filetypes = {},
-                --   exclude_buftypes = {},
-                -- },
-            }
-            vim.keymap.set('n', '<CR>', function() vim.cmd('NeoZoomToggle') end, { silent = true, nowait = true })
-        end
-    }
 }

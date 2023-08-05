@@ -72,6 +72,7 @@ return {
 				c = {
 					name = "comment",
 				},
+                t = { "<cmd>Telekasten panel<CR>", "telekasten's panel" }
 			}, { prefix = ";" })
 
 			require("which-key").register({

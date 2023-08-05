@@ -7,11 +7,11 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
-        dependencies = { "github-nvim-theme" },
         config = function()
             require("lualine").setup({
                 options = {
-                    theme = "auto",
+                    icons_enable = true,
+                    theme = "solarized_dark",
                     component_separators = "|",
                     section_separators = "",
                 },
@@ -34,8 +34,14 @@ return {
         end,
     },
     {
-        "projekt0n/github-nvim-theme",
-        tag = "v0.0.7",
+        'svrana/neosolarized.nvim',
+        dependencies = { 'tjdevries/colorbuddy.nvim' },
+        config = function()
+            require('neosolarized').setup({
+                comment_italics = true,
+                background_set = false,
+            })
+        end
     },
     {
         "crispgm/nvim-tabline",
@@ -45,40 +51,6 @@ return {
                 show_icon = true, -- show file extension icon
             })
             return true
-        end,
-    },
-    {
-        "f-person/auto-dark-mode.nvim",
-        config = function()
-            local auto_dark_mode = require("auto-dark-mode")
-            local lualine = require("lualine")
-            local github_theme = require("github-theme")
-            auto_dark_mode.setup({
-                update_interval = 1000,
-                set_dark_mode = function()
-                    vim.api.nvim_set_option("background", "dark")
-                    github_theme.setup({
-                        theme_style = "dark",
-                    })
-                    lualine.setup({
-                        options = {
-                            theme = "github_dark",
-                        },
-                    })
-                end,
-                set_light_mode = function()
-                    vim.api.nvim_set_option("background", "light")
-                    github_theme.setup({
-                        theme_style = "light",
-                    })
-                    lualine.setup({
-                        options = {
-                            theme = "github_light",
-                        },
-                    })
-                end,
-            })
-            auto_dark_mode.init()
         end,
     },
 }
