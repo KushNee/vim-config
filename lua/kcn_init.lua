@@ -47,6 +47,19 @@ require("lazy").setup("plugins")
 -- connect to system clipboard
 vim.opt.clipboard:append("unnamedplus")
 
+local augroup = vim.api.nvim_create_augroup   -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
+
+-- Set indentation to 2 spaces
+augroup('setIndent', { clear = true })
+autocmd('Filetype', {
+  group = 'setIndent',
+  pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
+    'yaml', 'lua', 'markdown'
+  },
+  command = 'setlocal shiftwidth=2 tabstop=2'
+})
+
 if vim.g.neovide then
     vim.g.neovide_input_macos_alt_is_meta = true
     vim.g.neovide_cursor_animate_command_line = false

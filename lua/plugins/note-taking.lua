@@ -1,14 +1,5 @@
 return {
     {
-        'renerocksai/telekasten.nvim',
-        dependencies = { 'nvim-telescope/telescope.nvim' },
-        config = function()
-            require('telekasten').setup({
-                home = vim.fn.expand("~/Plain_Knowledge_Base"), -- Put the name of your notes directory here
-            })
-        end
-    },
-    {
         "toppair/peek.nvim",
         event = { "BufRead", "BufNewFile" },
         build = "deno task --quiet build:fast",
@@ -19,6 +10,61 @@ return {
             })
             vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
             vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+        end,
+    },
+    {
+        "mickael-menu/zk-nvim",
+        config = function()
+            require("zk").setup({
+                -- See Setup section below
+                picker = "telescope",
+                lsp = {
+                    config = {
+                        cmd = { "zk", "lsp" },
+                        name = "zk"
+                    },
+                    auto_attach = {
+                        enable = true,
+                        filetypes = { "markdown" }
+                    }
+                }
+            })
+        end
+    },
+    {
+        "gaoDean/autolist.nvim",
+        ft = {
+            "markdown",
+            "text",
+            "tex",
+            "plaintex",
+            "norg",
+        },
+        config = function()
+            require("autolist").setup()
+
+            vim.keymap.set("i", "<tab>", "<cmd>AutolistTab<cr>")
+            vim.keymap.set("i", "<s-tab>", "<cmd>AutolistShiftTab<cr>")
+            -- vim.keymap.set("i", "<c-t>", "<c-t><cmd>AutolistRecalculate<cr>") -- an example of using <c-t> to indent
+            vim.keymap.set("i", "<CR>", "<CR><cmd>AutolistNewBullet<cr>")
+            vim.keymap.set("n", "o", "o<cmd>AutolistNewBullet<cr>")
+            vim.keymap.set("n", "O", "O<cmd>AutolistNewBulletBefore<cr>")
+            vim.keymap.set("n", "<CR>", "<cmd>AutolistToggleCheckbox<cr><CR>")
+            vim.keymap.set("n", "<C-r>", "<cmd>AutolistRecalculate<cr>")
+
+            -- cycle list types with dot-repeat
+            vim.keymap.set("n", "<leader>cn", require("autolist").cycle_next_dr, { expr = true })
+            vim.keymap.set("n", "<leader>cp", require("autolist").cycle_prev_dr, { expr = true })
+
+            -- if you don't want dot-repeat
+            -- vim.keymap.set("n", "<leader>cn", "<cmd>AutolistCycleNext<cr>")
+            -- vim.keymap.set("n", "<leader>cp", "<cmd>AutolistCycleNext<cr>")
+
+            -- functions to recalculate list on edit
+            vim.keymap.set("n", ">>", ">><cmd>AutolistRecalculate<cr>")
+            vim.keymap.set("n", "<<", "<<<cmd>AutolistRecalculate<cr>")
+            vim.keymap.set("n", "dd", "dd<cmd>AutolistRecalculate<cr>")
+            vim.keymap.set("v", "d", "d<cmd>AutolistRecalculate<cr>")
         end,
     },
 }

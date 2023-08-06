@@ -13,7 +13,7 @@ return {
         },
         config = function()
             local lspconfig = require("lspconfig")
-            local servers = { "gopls", "marksman", "lua_ls", "jsonls", "zls", "rust_analyzer", "tsserver" }
+            local servers = { "gopls", "lua_ls", "jsonls", "rust_analyzer", "tsserver" }
 
             for _, lsp in pairs(servers) do
                 lspconfig[lsp].setup({
@@ -51,7 +51,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "gopls", "marksman", "lua_ls", "jsonls", "zls", "rust_analyzer", "tsserver" }
+                    ensure_installed = { "gopls", "lua_ls", "jsonls", "rust_analyzer", "tsserver" }
             })
         end,
     },
