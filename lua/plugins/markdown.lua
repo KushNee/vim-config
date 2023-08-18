@@ -13,25 +13,6 @@ return {
         end,
     },
     {
-        "mickael-menu/zk-nvim",
-        config = function()
-            require("zk").setup({
-                -- See Setup section below
-                picker = "telescope",
-                lsp = {
-                    config = {
-                        cmd = { "zk", "lsp" },
-                        name = "zk"
-                    },
-                    auto_attach = {
-                        enable = true,
-                        filetypes = { "markdown" }
-                    }
-                }
-            })
-        end
-    },
-    {
         "gaoDean/autolist.nvim",
         ft = {
             "markdown",
